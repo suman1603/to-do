@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* Set background image */
+            background-image: url('./image/logo1.png');
+            /* Adjust background properties */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Add a fallback background color */
+            background-color: #f8f8f8; /* Fallback color if image fails to load */
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for container */
+        }
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .task-item {
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <input type="text" id="taskInput" placeholder="Enter task...">
+        <button onclick="addTask()">Add Task</button>
+        <ul id="taskList" class="task-list"></ul>
+    </div>
+
+    <script>
+        function addTask() {
+            var taskInput = document.getElementById("taskInput");
+            var task = taskInput.value.trim();
+            if (task !== "") {
+                var taskList = document.getElementById("taskList");
+                var li = document.createElement("li");
+                li.textContent = task;
+                taskList.appendChild(li);
+                taskInput.value = "";
+            } else {
+                alert("Please enter a task.");
+            }
+        }
+    </script>
+</body>
+</html>
